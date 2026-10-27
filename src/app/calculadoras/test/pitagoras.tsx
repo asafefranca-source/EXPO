@@ -96,3 +96,30 @@ const styles = StyleSheet.create({
     borderRadius: Spacing.four,
   },
 });
+export default function PitagorasScreen() {
+  const [valueA, onChangeTextA] = useState(0);
+  const [valueB, onChangeTextB] = useState(0);
+  const [valueC, onChangeTextC] = useState(0);
+
+  const calc = () => {
+    Alert.alert("rodando");
+    console.log("valueA", valueA);
+    console.log("valueB", valueB);
+    console.log("valueC", valueC);
+
+    const delta = valueB ** 2 - 4 * valueA * valueC;
+
+    console.log("delta", delta);
+
+    if (delta === 0) {
+      const x1 = (valueB * -1) / (2 * valueA);
+      console.log("x1", x1);
+    } else if (delta > 0) {
+      const x1 = (valueB * -1 + delta ** 0.5) / (2 * valueA);
+      const x2 = (valueB * -1 - delta ** 0.5) / (2 * valueA);
+      console.log("x1", x1);
+      console.log("x2", x2);
+    } else {
+      console.log("Error");
+    }
+  };
